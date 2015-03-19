@@ -33,8 +33,6 @@ void loop() {
   Wire.write((int)RegisterHighLowB);              // sets register pointer to (0x8f)
   Wire.endTransmission();                         // stop transmitting
 
-  SerialUSB.delay(20); // Wait 20ms for transmit
-
   Wire.requestFrom((int)LIDARLite_ADDRESS, 2); // request 2 bytes from LIDAR-Lite
 
   if(Wire.available() >= 2) {  // if two bytes were received
@@ -46,5 +44,6 @@ void loop() {
       SerialUSB.write(valueStr); // print the reading
     }
   }
+
 }
 
